@@ -6,6 +6,27 @@ function getAuthHeader() {
   return token ? { 'Authorization': `Bearer ${token}` } : {};
 }
 
+// Resilient response parser: handles both JSON and plain-text/HTML server errors safely
+async function handleResponse(res) {
+  const text = await res.text();
+  let data;
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch (e) {
+    if (!res.ok) {
+      const cleanSnippet = text.replace(/<[^>]*>?/gm, '').trim().slice(0, 160);
+      throw new Error(cleanSnippet || `Server error (${res.status})`);
+    }
+    return text;
+  }
+
+  if (!res.ok) {
+    throw new Error(data?.error || data?.message || `Server error (${res.status})`);
+  }
+
+  return data;
+}
+
 // ==========================================
 // AUTHENTICATION & USER MANAGEMENT
 // ==========================================
@@ -15,11 +36,8 @@ export async function loginUser(credentials) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials)
   });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.error || 'Failed to log in');
-  }
-  if (data.token) {
+  const data = await handleResponse(res);
+  if (data?.token) {
     localStorage.setItem('subodhi_token', data.token);
     localStorage.setItem('subodhi_user', JSON.stringify(data.user));
   }
@@ -44,11 +62,7 @@ export async function fetchUsers() {
   const res = await fetch(`${AUTH_BASE}/users`, {
     headers: { ...getAuthHeader() }
   });
-  if (!res.ok) {
-    const data = await res.json();
-    throw new Error(data.error || 'Failed to fetch users');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function createEmployee(employeeData) {
@@ -60,11 +74,7 @@ export async function createEmployee(employeeData) {
     },
     body: JSON.stringify(employeeData)
   });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.error || 'Failed to create employee account');
-  }
-  return data;
+  return handleResponse(res);
 }
 
 export async function deleteEmployee(id) {
@@ -72,11 +82,7 @@ export async function deleteEmployee(id) {
     method: 'DELETE',
     headers: { ...getAuthHeader() }
   });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.error || 'Failed to delete employee account');
-  }
-  return data;
+  return handleResponse(res);
 }
 
 // ==========================================
@@ -91,24 +97,21 @@ export async function fetchQuotations(params = {}) {
   const res = await fetch(`${API_BASE}?${query.toString()}`, {
     headers: { ...getAuthHeader() }
   });
-  if (!res.ok) throw new Error('Failed to fetch quotations');
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function fetchAnalytics() {
   const res = await fetch(`${API_BASE}/stats/analytics`, {
     headers: { ...getAuthHeader() }
   });
-  if (!res.ok) throw new Error('Failed to fetch analytics');
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function fetchQuotationById(id) {
   const res = await fetch(`${API_BASE}/${id}`, {
     headers: { ...getAuthHeader() }
   });
-  if (!res.ok) throw new Error('Failed to fetch quotation details');
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function createQuotation(data) {
@@ -120,11 +123,7 @@ export async function createQuotation(data) {
     },
     body: JSON.stringify(data)
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to create quotation');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function uploadExcelQuotation(formData) {
@@ -133,11 +132,7 @@ export async function uploadExcelQuotation(formData) {
     headers: { ...getAuthHeader() },
     body: formData
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to upload and parse Excel quotation');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function authorizeQuotation(id, payload = {}) {
@@ -149,11 +144,7 @@ export async function authorizeQuotation(id, payload = {}) {
     },
     body: JSON.stringify(payload)
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to authorize quotation');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function rejectQuotation(id, payload = {}) {
@@ -165,11 +156,7 @@ export async function rejectQuotation(id, payload = {}) {
     },
     body: JSON.stringify(payload)
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to reject quotation');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function sendToCustomer(id) {
@@ -177,11 +164,7 @@ export async function sendToCustomer(id) {
     method: 'POST',
     headers: { ...getAuthHeader() }
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to send quotation to customer');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function submitForApproval(id) {
@@ -189,11 +172,7 @@ export async function submitForApproval(id) {
     method: 'POST',
     headers: { ...getAuthHeader() }
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to submit quotation for approval');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function adjustQuotation(id, payload) {
@@ -205,11 +184,7 @@ export async function adjustQuotation(id, payload) {
     },
     body: JSON.stringify(payload)
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to record adjustment');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function markConversion(id, payload) {
@@ -221,11 +196,7 @@ export async function markConversion(id, payload) {
     },
     body: JSON.stringify(payload)
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to update conversion status');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export async function deleteQuotation(id) {
@@ -233,11 +204,7 @@ export async function deleteQuotation(id) {
     method: 'DELETE',
     headers: { ...getAuthHeader() }
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || 'Failed to delete quotation');
-  }
-  return res.json();
+  return handleResponse(res);
 }
 
 export function getPdfDownloadUrl(id) {

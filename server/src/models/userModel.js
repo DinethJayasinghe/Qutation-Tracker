@@ -3,20 +3,8 @@ import bcrypt from 'bcryptjs';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { isConnected } from '../config/db.js';
+import { isConnected, USER_DATA_FILE } from '../config/db.js';
 import crypto from 'crypto';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const USER_DATA_FILE = path.resolve(__dirname, '../../data/users.json');
-
-// Ensure users.json exists for fallback mode
-if (!fs.existsSync(path.dirname(USER_DATA_FILE))) {
-  fs.mkdirSync(path.dirname(USER_DATA_FILE), { recursive: true });
-}
-if (!fs.existsSync(USER_DATA_FILE)) {
-  fs.writeFileSync(USER_DATA_FILE, JSON.stringify([]));
-}
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },

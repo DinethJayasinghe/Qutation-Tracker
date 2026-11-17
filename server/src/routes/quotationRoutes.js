@@ -8,13 +8,6 @@ import { parseQuotationExcel, generateQuotationExcelTemplate } from '../services
 import { generateQuotationPDF } from '../services/pdfService.js';
 
 const router = express.Router();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const UPLOAD_DIR = path.resolve(__dirname, '../../uploads');
-
-if (!fs.existsSync(UPLOAD_DIR)) {
-  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-}
 
 const storage = multer.memoryStorage();
 const upload = multer({
