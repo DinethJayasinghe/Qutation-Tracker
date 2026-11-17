@@ -1,0 +1,22 @@
+{
+  "name": "subodhi-quotation-tracker",
+  "version": "1.0.0",
+  "description": "Subodhi Institute Quotation Lifecycle Tracker - MERN App with Admin Authorization, Excel-to-PDF Conversion & Business Analytics",
+  "type": "module",
+  "scripts": {
+    "start": "node server/src/server.js",
+    "server": "node server/src/server.js",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "mern",
+    "quotation",
+    "subodhi",
+    "pdf-generation",
+    "excel-parser",
+    "business-tracker"
+  ],
+  "author": "Subodhi Integral Education",
+  "license": "ISC"
+}

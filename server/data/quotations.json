@@ -1,0 +1,454 @@
+[
+  {
+    "_id": "0db0c52a-63f2-4582-891f-7b9dab4ac8bd",
+    "quotationNumber": "QT-2026-0003",
+    "title": "Spiritual Formation & Mindfulness Workshop",
+    "client": {
+      "name": "Mr. Chandana Jayasuriya",
+      "organization": "St. Joseph Higher Education Society",
+      "email": "chandana@stjoseph.edu.lk",
+      "phone": "+94 11 258 9910",
+      "address": "No. 88, Galle Road, Moratuwa"
+    },
+    "createdBy": {
+      "name": "Nirmal Silva",
+      "role": "employee",
+      "email": "nirmal.silva@subodhi.org"
+    },
+    "date": "2026-11-13T04:43:04.660Z",
+    "validUntil": "2026-12-13T04:43:04.660Z",
+    "currency": "LKR",
+    "items": [
+      {
+        "itemCode": "ITM-01",
+        "description": "Integral Education Hall Rental",
+        "unit": "Days",
+        "quantity": 1,
+        "unitPrice": 28000,
+        "discountPercent": 0,
+        "taxPercent": 0,
+        "total": 28000
+      },
+      {
+        "itemCode": "ITM-02",
+        "description": "Morning Tea, Lunch & Evening Refreshments",
+        "unit": "Persons",
+        "quantity": 35,
+        "unitPrice": 2100,
+        "discountPercent": 0,
+        "taxPercent": 0,
+        "total": 73500
+      },
+      {
+        "itemCode": "ITM-03",
+        "description": "Subodhi Meditation & Reflection Guide Session",
+        "unit": "Session",
+        "quantity": 1,
+        "unitPrice": 20000,
+        "discountPercent": 0,
+        "taxPercent": 0,
+        "total": 20000
+      }
+    ],
+    "subtotal": 121500,
+    "totalDiscount": 0,
+    "taxAmount": 0,
+    "grandTotal": 121500,
+    "status": "SENT_TO_CUSTOMER",
+    "approval": {
+      "isApproved": true,
+      "approvedBy": "Rev. Fr. Meril Gunawardena (Program Co-ordinator)",
+      "approvedAt": "2026-11-14T04:43:04.660Z",
+      "adminNotes": "Authorized for sending. Approved community discount if requested."
+    },
+    "conversion": {
+      "isConverted": false,
+      "convertedAt": null,
+      "convertedValue": 0
+    },
+    "version": 1,
+    "originalQuotationSnapshot": {
+      "items": [
+        {
+          "itemCode": "ITM-01",
+          "description": "Integral Education Hall Rental",
+          "unit": "Days",
+          "quantity": 1,
+          "unitPrice": 28000,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 28000
+        },
+        {
+          "itemCode": "ITM-02",
+          "description": "Morning Tea, Lunch & Evening Refreshments",
+          "unit": "Persons",
+          "quantity": 35,
+          "unitPrice": 2100,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 73500
+        },
+        {
+          "itemCode": "ITM-03",
+          "description": "Subodhi Meditation & Reflection Guide Session",
+          "unit": "Session",
+          "quantity": 1,
+          "unitPrice": 20000,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 20000
+        }
+      ],
+      "subtotal": 121500,
+      "totalDiscount": 0,
+      "taxAmount": 0,
+      "grandTotal": 121500,
+      "date": "2026-11-13T04:43:04.660Z"
+    },
+    "source": "manual",
+    "createdAt": "2026-11-17T04:43:04.660Z",
+    "updatedAt": "2026-11-17T04:43:04.660Z"
+  },
+  {
+    "_id": "42f10e45-30f4-482b-baf4-b6a49d7ad6a6",
+    "quotationNumber": "QT-2026-0002",
+    "title": "Corporate Well-being & Executive Reflection Retreat",
+    "client": {
+      "name": "Ms. Nelum Fernando",
+      "organization": "Ceylon Logistics Global PLC",
+      "email": "n.fernando@ceylonlogistics.com",
+      "phone": "+94 71 882 1199",
+      "address": "World Trade Center, West Tower, Colombo 01"
+    },
+    "createdBy": {
+      "name": "Kusal Perera",
+      "role": "employee",
+      "email": "kusal.perera@subodhi.org"
+    },
+    "date": "2026-11-17T04:43:04.658Z",
+    "validUntil": "2026-12-17T04:43:04.658Z",
+    "currency": "LKR",
+    "items": [
+      {
+        "itemCode": "ITM-01",
+        "description": "Seminar Hall & Audio Visual Facilities",
+        "unit": "Days",
+        "quantity": 2,
+        "unitPrice": 30000,
+        "discountPercent": 0,
+        "taxPercent": 0,
+        "total": 60000
+      },
+      {
+        "itemCode": "ITM-02",
+        "description": "Refreshments & Lunch Buffet (Special Menu)",
+        "unit": "Persons",
+        "quantity": 50,
+        "unitPrice": 2400,
+        "discountPercent": 0,
+        "taxPercent": 0,
+        "total": 120000
+      },
+      {
+        "itemCode": "ITM-03",
+        "description": "Outdoor Team Building Ground & Facilitator",
+        "unit": "Day",
+        "quantity": 1,
+        "unitPrice": 45000,
+        "discountPercent": 0,
+        "taxPercent": 0,
+        "total": 45000
+      }
+    ],
+    "subtotal": 225000,
+    "totalDiscount": 0,
+    "taxAmount": 0,
+    "grandTotal": 225000,
+    "status": "PENDING_APPROVAL",
+    "approval": {
+      "isApproved": false,
+      "approvedBy": null,
+      "approvedAt": null,
+      "adminNotes": ""
+    },
+    "conversion": {
+      "isConverted": false,
+      "convertedAt": null,
+      "convertedValue": 0
+    },
+    "version": 1,
+    "originalQuotationSnapshot": {
+      "items": [
+        {
+          "itemCode": "ITM-01",
+          "description": "Seminar Hall & Audio Visual Facilities",
+          "unit": "Days",
+          "quantity": 2,
+          "unitPrice": 30000,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 60000
+        },
+        {
+          "itemCode": "ITM-02",
+          "description": "Refreshments & Lunch Buffet (Special Menu)",
+          "unit": "Persons",
+          "quantity": 50,
+          "unitPrice": 2400,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 120000
+        },
+        {
+          "itemCode": "ITM-03",
+          "description": "Outdoor Team Building Ground & Facilitator",
+          "unit": "Day",
+          "quantity": 1,
+          "unitPrice": 45000,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 45000
+        }
+      ],
+      "subtotal": 225000,
+      "totalDiscount": 0,
+      "taxAmount": 0,
+      "grandTotal": 225000,
+      "date": "2026-11-17T04:43:04.658Z"
+    },
+    "source": "excel_import",
+    "excelFileName": "Corporate_Retreat_Quotation.xlsx",
+    "createdAt": "2026-11-17T04:43:04.659Z",
+    "updatedAt": "2026-11-17T04:43:04.659Z"
+  },
+  {
+    "_id": "1d2fecc1-a70e-48d2-97dc-625ef6e91af8",
+    "quotationNumber": "QT-2026-0001",
+    "title": "Annual Youth Leadership & Formation Summit 2026",
+    "client": {
+      "name": "Dr. Susantha Jayawardena",
+      "organization": "Apex Life Sciences & Development Trust",
+      "email": "susanthaj@apexdev.org",
+      "phone": "+94 77 345 6789",
+      "address": "No. 128, Kandy Road, Kelaniya"
+    },
+    "createdBy": {
+      "name": "Nirmal Silva",
+      "role": "employee",
+      "email": "nirmal.silva@subodhi.org"
+    },
+    "date": "2026-11-03T04:43:04.654Z",
+    "validUntil": "2026-12-03T04:43:04.654Z",
+    "currency": "LKR",
+    "items": [
+      {
+        "itemCode": "ITM-01",
+        "description": "Main Conference Auditorium (3 Days)",
+        "unit": "Days",
+        "quantity": 3,
+        "unitPrice": 40000,
+        "discountPercent": 5,
+        "taxPercent": 0,
+        "total": 114000
+      },
+      {
+        "itemCode": "ITM-02",
+        "description": "Executive Residential Accommodation (Deluxe)",
+        "unit": "Rooms",
+        "quantity": 25,
+        "unitPrice": 6500,
+        "discountPercent": 5,
+        "taxPercent": 0,
+        "total": 154375
+      },
+      {
+        "itemCode": "ITM-03",
+        "description": "Catering Package: Full Board Buffet Meals",
+        "unit": "Persons",
+        "quantity": 40,
+        "unitPrice": 3200,
+        "discountPercent": 0,
+        "taxPercent": 0,
+        "total": 128000
+      },
+      {
+        "itemCode": "ITM-04",
+        "description": "Resource Facilitator & Audio Visual Equipment",
+        "unit": "Package",
+        "quantity": 1,
+        "unitPrice": 35000,
+        "discountPercent": 10,
+        "taxPercent": 0,
+        "total": 31500
+      }
+    ],
+    "subtotal": 447500,
+    "totalDiscount": 19625,
+    "taxAmount": 0,
+    "grandTotal": 427875,
+    "status": "CONVERTED",
+    "approval": {
+      "isApproved": true,
+      "approvedBy": "Rev. Fr: Lawrence Ramanayake (Director)",
+      "approvedAt": "2026-11-04T04:43:04.654Z",
+      "adminNotes": "Approved with preferential NGO development partner rate."
+    },
+    "conversion": {
+      "isConverted": true,
+      "convertedAt": "2026-11-14T04:43:04.654Z",
+      "convertedValue": 427875,
+      "clientFeedback": "Customer accepted revised budget after group size adjustment and 5% package discount.",
+      "lostReason": ""
+    },
+    "version": 2,
+    "originalQuotationSnapshot": {
+      "items": [
+        {
+          "itemCode": "ITM-01",
+          "description": "Main Conference Auditorium (3 Days)",
+          "unit": "Days",
+          "quantity": 3,
+          "unitPrice": 40000,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 120000
+        },
+        {
+          "itemCode": "ITM-02",
+          "description": "Executive Residential Accommodation (Deluxe)",
+          "unit": "Rooms",
+          "quantity": 30,
+          "unitPrice": 6500,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 195000
+        },
+        {
+          "itemCode": "ITM-03",
+          "description": "Catering Package: Full Board Buffet Meals",
+          "unit": "Persons",
+          "quantity": 45,
+          "unitPrice": 3200,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 144000
+        },
+        {
+          "itemCode": "ITM-04",
+          "description": "Resource Facilitator & Audio Visual Equipment",
+          "unit": "Package",
+          "quantity": 1,
+          "unitPrice": 35000,
+          "discountPercent": 0,
+          "taxPercent": 0,
+          "total": 35000
+        }
+      ],
+      "subtotal": 494000,
+      "totalDiscount": 0,
+      "taxAmount": 0,
+      "grandTotal": 494000,
+      "date": "2026-11-03T04:43:04.654Z"
+    },
+    "adjustments": [
+      {
+        "version": 2,
+        "adjustedAt": "2026-11-11T04:43:04.654Z",
+        "adjustedBy": "Nirmal Silva",
+        "reason": "Client requested room count reduction from 30 to 25 and requested a 5% discount on auditorium.",
+        "previousGrandTotal": 494000,
+        "newGrandTotal": 427875,
+        "difference": -66125,
+        "changesSummary": "Revision #2: Reduced rooms, negotiated 5% concession, net savings of Rs. 66,125 for customer.",
+        "previousItems": [
+          {
+            "itemCode": "ITM-01",
+            "description": "Main Conference Auditorium (3 Days)",
+            "unit": "Days",
+            "quantity": 3,
+            "unitPrice": 40000,
+            "discountPercent": 0,
+            "taxPercent": 0,
+            "total": 120000
+          },
+          {
+            "itemCode": "ITM-02",
+            "description": "Executive Residential Accommodation (Deluxe)",
+            "unit": "Rooms",
+            "quantity": 30,
+            "unitPrice": 6500,
+            "discountPercent": 0,
+            "taxPercent": 0,
+            "total": 195000
+          },
+          {
+            "itemCode": "ITM-03",
+            "description": "Catering Package: Full Board Buffet Meals",
+            "unit": "Persons",
+            "quantity": 45,
+            "unitPrice": 3200,
+            "discountPercent": 0,
+            "taxPercent": 0,
+            "total": 144000
+          },
+          {
+            "itemCode": "ITM-04",
+            "description": "Resource Facilitator & Audio Visual Equipment",
+            "unit": "Package",
+            "quantity": 1,
+            "unitPrice": 35000,
+            "discountPercent": 0,
+            "taxPercent": 0,
+            "total": 35000
+          }
+        ],
+        "newItems": [
+          {
+            "itemCode": "ITM-01",
+            "description": "Main Conference Auditorium (3 Days)",
+            "unit": "Days",
+            "quantity": 3,
+            "unitPrice": 40000,
+            "discountPercent": 5,
+            "taxPercent": 0,
+            "total": 114000
+          },
+          {
+            "itemCode": "ITM-02",
+            "description": "Executive Residential Accommodation (Deluxe)",
+            "unit": "Rooms",
+            "quantity": 25,
+            "unitPrice": 6500,
+            "discountPercent": 5,
+            "taxPercent": 0,
+            "total": 154375
+          },
+          {
+            "itemCode": "ITM-03",
+            "description": "Catering Package: Full Board Buffet Meals",
+            "unit": "Persons",
+            "quantity": 40,
+            "unitPrice": 3200,
+            "discountPercent": 0,
+            "taxPercent": 0,
+            "total": 128000
+          },
+          {
+            "itemCode": "ITM-04",
+            "description": "Resource Facilitator & Audio Visual Equipment",
+            "unit": "Package",
+            "quantity": 1,
+            "unitPrice": 35000,
+            "discountPercent": 10,
+            "taxPercent": 0,
+            "total": 31500
+          }
+        ]
+      }
+    ],
+    "source": "manual",
+    "createdAt": "2026-11-17T04:43:04.655Z",
+    "updatedAt": "2026-11-17T04:43:04.655Z"
+  }
+]
