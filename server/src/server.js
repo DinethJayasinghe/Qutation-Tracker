@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import { connectDB, getDBStatus } from './config/db.js';
+import { connectDB, getDBStatus, isConnected } from './config/db.js';
 import quotationRoutes from './routes/quotationRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import { Quotation } from './models/quotationModel.js';
@@ -51,12 +51,25 @@ async function seedUsersIfEmpty() {
   }
 }
 
-// API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/quotations', quotationRoutes);
+// Auto-connect middleware for serverless / Vercel invocations
+app.use(async (req, res, next) => {
+  if (!isConnected()) {
+    try {
+      await connectDB();
+      await seedUsersIfEmpty();
+    } catch (e) {
+      console.error('Database connection error in middleware:', e);
+    }
+  }
+  next();
+});
+
+// API Routes (supports both /api/* and root mount in case of proxy rewrites)
+app.use(['/api/auth', '/auth'], authRoutes);
+app.use(['/api/quotations', '/quotations'], quotationRoutes);
 
 // Health check
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({
     status: 'ONLINE',
     time: new Date(),
@@ -64,20 +77,19 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Serve frontend build if client/dist exists
+// Serve frontend build if client/dist exists (for local single-port mode)
 const clientDistPath = path.resolve(__dirname, '../../client/dist');
 if (fs.existsSync(clientDistPath)) {
-  console.log(`📦 Serving React frontend from: ${clientDistPath}`);
   app.use(express.static(clientDistPath));
   app.get('*', (req, res, next) => {
-    if (req.path.startsWith('/api') || req.path.startsWith('/assets')) {
+    if (req.path.startsWith('/api') || req.path.startsWith('/assets') || req.path.startsWith('/auth') || req.path.startsWith('/quotations')) {
       return next();
     }
     res.sendFile(path.join(clientDistPath, 'index.html'));
   });
 }
 
-// Start Server
+// Start Server locally if not running as a Vercel serverless function
 async function startServer() {
   await connectDB();
   await seedUsersIfEmpty();
@@ -93,4 +105,12 @@ async function startServer() {
   });
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+} else {
+  // Pre-connect in Vercel environment
+  connectDB().then(() => seedUsersIfEmpty()).catch(console.error);
+}
+
+export default app;
+export { app, startServer };
